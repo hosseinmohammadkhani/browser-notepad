@@ -2,15 +2,16 @@
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Browser Notepad, Write your note here:">
     <meta name="description" content="">
-    <title>About</title>
+    <title><%= pageTitle %></title>
     <link rel="stylesheet" href="../css/nicepage.css" media="screen">
-<link rel="stylesheet" href="../css/About.css" media="screen">
-    <script class="u-script" type="text/javascript" src="../js/jquery.js" "="" defer=""></script>
-    <script class="u-script" type="text/javascript" src="../js/nicepage.js" "="" defer=""></script>
+<link rel="stylesheet" href="../css/Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../js/jquery.js"></script>
+    <script class="u-script" type="text/javascript" src="../js/nicepage.js"></script>
     <meta name="generator" content="Nicepage 4.16.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link rel="stylesheet" href="../css/code.css">
     
     
     <script type="application/ld+json">{
@@ -19,7 +20,7 @@
 		"name": ""
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
   </head>
   <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-9cf4"><div class="u-clearfix u-sheet u-sheet-1">
@@ -33,7 +34,7 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item">
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -41,7 +42,7 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
+</li><li class="u-nav-item">
 </li></ul>
               </div>
             </div>
@@ -49,12 +50,38 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-clearfix u-section-1" id="sec-3e93">
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" data-image-width="500" data-image-height="333" id="sec-733c">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-text u-text-default u-text-1">Browser notepad is an application which can be used for saving notes. Things written in the text area and things saved will not be sent to a server,they will be saved into the local storage of user's browser.</p>
+        <h1 class="u-text u-text-default u-title u-text-1">Browser Notepad</h1>
+        <p class="u-large-text u-text u-text-variant u-text-2">SAVE YOUR NOTES HERE!</p>
+        <p class="u-align-center u-text u-text-3">created by Hossein Mohammadkhani</p>
       </div>
     </section>
-    
+
+    <section class="u-clearfix u-section-2" id="sec-0fd3">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-1">Write your note here:&nbsp;</h1>
+        <div class="container">
+          <form id="form" action="/save-note" method="POST">
+            <textarea id="note" name="note"></textarea><br>
+            <input type="submit" value="Save" class="button">
+          </form>
+
+          <% if(retrievedArray.length > 0){ %>
+            <% retrievedArray.forEach(note => { %>
+              <p><%= note %></p>
+            <% }) %>
+          <% }else{ %>
+            <p>No notes here</p>
+          <% } %>
+          
+          <a href="/delete-notes" value = "Clear all" class="button2">Clear all</a>
+          
+        </div>
+      </div>
+      <br>
+    </section>
+
     
     <footer class="u-align-center u-clearfix u-footer u-gradient u-footer" id="sec-0f50"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-align-center u-small-text u-text u-text-variant u-text-white u-text-1">Hossein Mohamma​dkhani</p>
@@ -83,5 +110,5 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-      </div></footer> 
+      </div></footer>
 </body></html>
